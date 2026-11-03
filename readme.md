@@ -1,31 +1,34 @@
-# Project: VTK webapp
+# VTK Medical Visualization Web App
 
-##### by: Omar Essam, Mohamed Bahaa, Youssef El Gazzar, Mohamed Ahmed Hamed
+A browser-based 3D viewer for medical volumes built with **vtk.js**. It supports surface rendering with an adjustable iso value and volume ray casting with adjustable transfer functions, and you can switch between the two modes at runtime.
 
-#### Problems we faced in:
-- Toggling between modes
+Team project: Omar Essam, Mohamed Bahaa, Youssef El Gazzar, Mohamed Ahmed Hamed.
 
+## Demo
 
-#### Toggling between modes 
-1. After choosing the mode, we were unable to change the mode 
-- We used QuerySelector function that allows changing mode once again 
-2. Toggling between two modes was allowed only once
-- we used QuerySelectorAll instead of QuerySelector as :
- The querySelector() method returns the first element within the document which matches a specified CSS selector(s).
- If multiple elements occurs, then it returns the result for only the first matching element.
-The querySelectorAll() method returns all the elements within the document which matches the specified CSS selector(s).
- It returns all the elements that matches with the selector in the form of a static NodeList object which is a collection of nodes.
+**Surface rendering: changing the iso value**
 
+<img src="Output Screenshots/Chest.gif" alt="Iso value demo" width="600">
 
+**Ray casting: changing the rendering properties**
 
-#### Output 
+<img src="Output Screenshots/Skull.gif" alt="Ray casting demo" width="600">
 
+**Toggling between modes**
 
-- Changing iso value:
-<center><img src="Output Screenshots/Chest.gif" alt="alt text" width="600" height="400"></center>
+<img src="Output Screenshots/Toggle.gif" alt="Mode toggle demo" width="600">
 
-- Changing ray casting properties:
-<center><img src="Output Screenshots/Skull.gif" alt="alt text" width="600" height="400"></center>
+## Run
 
--Toggling between  modes: 
-<center><img src="Output Screenshots/Toggle.gif" alt="alt text" width="600" height="400"></center>
+```bash
+npm install
+npm start
+```
+
+## A problem we solved
+
+After picking a mode, users couldn't switch again. We were binding the toggle with `querySelector()`, which returns only the first matching element. Switching to `querySelectorAll()` bound every mode control, so users can toggle freely.
+
+## Tech stack
+
+JavaScript · vtk.js · Webpack · npm
